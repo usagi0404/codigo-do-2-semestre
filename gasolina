@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div class="central">
+        <div>
+            <span>Distancia</span>
+            <input type="text" id="dist" placeholder="adododo">
+        </div>
+        <div>
+            <span>Consumo</span>
+            <input type="text" id="cons">
+        </div>
+        <div>
+            <span>Preco</span>
+            <input type="text" id="prec">
+        </div>
+        <button id="botao">Calcular</button>
+        <p id="resultado"></p>
+
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
+----------------------------------------------
+//dom
+const dist = document.querySelector("#dist")
+const cons = document.querySelector("#cons")
+const prec = document.querySelector("#prec")
+const resultado = document.querySelector("#resultado")
+const botao = document.querySelector("#botao")
+
+//evento
+
+botao.addEventListener('click', calcular)
+
+//funcao
+function calcular(){
+    n1 = Number(dist.value)
+    n2 = Number(cons.value)
+    n3 = Number(prec.value)
+
+    soma = (n1/n2)*n3
+
+   resultado.textContent = `A sua viagem vai custar ${soma}`
+}
+-------------------------------------
+body {
+    height: 100vh;
+    background: url('/imagens/combustivel-cores200628.jpg');
+    background-size: cover;
+    background-attachment: fixed ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.central {
+    width: 400px;
+    background: rgba(215, 240, 255, 0.911);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+    box-shadow: 5px 5px 10px black;
+}
+
+
+.central input{
+    height: 20px;
+    width: 150px;
+    align-items: center;
+    background: rgb(241, 245, 255);
+    border: none;
+    outline: none;
+}
+
+.central input:focus{
+    background: rgb(206, 234, 255);
+}
+
+.central button{
+    background: rgb(177, 198, 255);
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
