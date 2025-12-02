@@ -1,0 +1,97 @@
+//dom
+const texto = document.querySelector('#texto')
+const botao = document.querySelector('#botao')
+const area = document.querySelector('#qrcode')
+
+//evento
+botao.addEventListener('click', gerar)
+
+//função
+function gerar(){
+    area.innerHTML = ''
+    new QRCode(area,{
+        text:texto.value,
+        width:350,
+        height:350,
+        colorLight: 'transparent',
+        colorDark: 'black'
+    })
+}
+]
+--------------------------
+body{
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /*Eliminar qualquer barra de rolagem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+}
+
+#titulo{
+    color: white;
+}
+
+#fundo{
+    min-width: 100%; /* */
+    height: auto;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    opacity: 50%;
+}
+
+.central{
+    width: fit-content;
+    height: fit-content;
+    background: rgba(255, 255, 255, 0.616);
+    padding: 25px;
+    border-radius: 20px;
+
+}
+
+.central div input{
+    height: 30px;
+    width: 80%;
+    border-radius: 10px;
+    border: none;
+}
+
+.central div button{
+    background: black;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#qrcode{
+    margin-top: 30px;
+}
+----------------------------
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <video src="video/4990233-hd_1280_720_30fps.mp4" autoplay muted loop id="fundo"></video>
+    <div class="central">
+        <h1 id="titulo">Gerador de QRCODE V1.0</h1>
+        <div>
+            <input type="text" id="texto" placeholder="Digite a sua URL">
+            <button id="botao">Gerar</button>
+        </div>
+        <div id="qrcode"></div>
+
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
