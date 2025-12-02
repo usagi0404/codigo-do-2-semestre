@@ -1,0 +1,173 @@
+// HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div id="alvo">
+        <div class="data">
+            <span id="dia">00</span>
+            <span>/</span>
+            <span id="mes">00</span>
+            <span>/</span>
+            <span id="ano">00</span>
+        </div>
+
+        <div class="data">
+            <span id="saudacao">00</span>
+        </div>
+    </div>
+
+    <div class="Relogio">
+        <div>
+            <span id="horas">00</span>
+        </div>
+        <span class="ponto">:</span>
+        <div>
+            <span id="minutos">00</span>
+        </div>
+        <span class="ponto">:</span>
+        <div>
+            <span id="segundos">00</span>
+        </div>
+    </div>
+
+    <script src='js/script.js'></script>
+</body>
+</html>
+--------------------------------------------------
+//css
+body {
+    height: 100vh;
+    background: url('/imagem/mark-harpur-K2s_YE031CA-unsplash.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.data span{
+    font-size: 50px;
+}
+
+.Relogio{
+    width: 400px;
+    background: rgba(255, 255, 255, 0.671);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.Relogio div{
+    background: rgba(185, 124, 255, 0.637);
+    color: white;
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Relogio span{
+    font-size: 80px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.Relogio .ponto{
+    color: rgb(201, 156, 243);
+}
+
+
+.data{
+    width: 400px;
+    background: rgba(255, 255, 255, 0.671);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.data div{
+    background: rgba(185, 124, 255, 0.637);
+    color: white;
+    height: 50px;
+    width: 15px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.data span{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+-------------------------------------------------------------
+//js   
+//dom
+const horas = document.querySelector('#horas')
+const minutos = document.querySelector('#minutos')
+const segundos = document.querySelector('#segundos')
+// 
+const dia = document.querySelector('#dia')
+const mes = document.querySelector('#mes')
+const ano = document.querySelector('#ano')
+const saudacao = document.querySelector('#saudacao')
+//evento
+
+setInterval(Relogio,1000)
+
+
+//funções
+
+function Relogio(){
+    let hoje = new Date()
+    let h = hoje.getHours()
+    let m = hoje.getMinutes()
+    let s = hoje.getSeconds()
+
+    let d = hoje.getDate()
+    let me = hoje.getMonth()+1
+    let y = hoje.getFullYear()
+    
+
+    if (h<10){
+        h='0'+h
+    }
+    if (m<10){
+        m='0'+m
+    }
+    if (s<10){
+        s='0'+s
+    }
+
+    horas.textContent = h
+    minutos.textContent = m
+    segundos.textContent = s
+
+
+    if(h>=5 && h<12){
+        saudacao.textContent = 'Bom Dia !'
+        alvo.src = ''
+
+    }else if(h>=12 && h<18){
+        saudacao.textContent = 'Boa Tarde !'
+}else{
+
+    saudacao.textContent = 'Boa Noite !'
+}
+
+    dia.textContent = d
+    mes.textContent = me
+    ano.textContent = y
+}
