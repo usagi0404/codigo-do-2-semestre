@@ -1,0 +1,64 @@
+//css estilo css
+body {
+    height: 100vh; /* Ocupa 100% da altura da janela */
+    margin: 0; /* Remove margens padrão */
+}
+
+.blue {
+    background: linear-gradient(blue, black);
+}
+
+.red {
+    background: linear-gradient(red, black);
+}
+
+.green {
+    background: linear-gradient(rgb(4, 182, 19), black);
+}
+
+
+----------------------------------------------
+//script js
+// script.js
+const fundo = document.querySelector('body');
+const red = document.querySelector('#red');
+const blue = document.querySelector('#blue');
+const green = document.querySelector('#green');
+
+// Eventos
+red.addEventListener('click', vermelho);
+blue.addEventListener('click', azul);
+green.addEventListener('click', verde);
+
+// Funções
+function vermelho() {
+    fundo.className = 'red';
+}
+function azul() {
+    fundo.className = 'blue';
+}
+function verde() {
+    fundo.className = 'green';
+}
+
+---------------------------------------
+
+//index.html
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/estilos.css"> <!-- Certifique-se de que o CSS está vinculado -->
+</head>
+<body>
+    <div class="central">
+        <button id='red'>RED</button>
+        <button id='green'>GREEN</button>
+        <button id='blue'>BLUE</button>
+    </div>
+    <script src="js/script.js"></script> <!-- Certifique-se de que o JS está vinculado -->
+</body>
+</html>
+
